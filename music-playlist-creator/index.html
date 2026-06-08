@@ -11,15 +11,149 @@
 </head>
 <body>
     <header>
-        <!-- Your header content here -->
+        <h1>WillyTunes</h1>
+
+        <form class="search-form">
+            <img src="assets/img/magnifiying_glass_icon.png" alt="Search" class="search-icon">
+            <input
+            type="text"
+            placeholder="Search playlists..."
+            class="search-input"
+            />
+        </form>
+        
+        <section class="control-panel">
+            
+            <nav>
+                <button class="nav-btn">All</button>
+                <button class="nav-btn">Featured</button>
+                <button class="nav-btn">Favorites</button>
+                <button class="nav-btn">Recents</button>
+                <button class="nav-btn" class="create-playlist-btn">Create Playlist</button>
+            </nav>
+        </section>
+
     </header>
 
-    <main> 
-        <!-- Your main content here -->
+    <main>
+        <section class="playlist-cards">
+            <article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-genre">Genre</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+            </article>
+
+            <article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-genre">Genre</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+            </article>
+
+            <article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-genre">Genre</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+            </article>
+
+            <article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-genre">Genre</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+            </article>
+
+            <article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-genre">Genre</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+            </article>
+
+            <article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-genre">Genre</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+            </article>
+
+            <article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-genre">Genre</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+            </article>
+
+            <article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-genre">Genre</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+            </article>
+
+            <!-- Modal Structure -->
+            <div id="playlist-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+
+                    <div class="modal-header">
+                        <img id="modal-playlist-image" src="" alt="Playlist Image" class="modal-playlist-cover">
+                        <div class="modal-header-info">
+                            <h2 id="modal-playlist-name"></h2>
+                            <p id="modal-playlist-creator"></p>
+                        </div>
+                    </div>
+
+                    <div id="modal-song-list" class="modal-song-list"></div>
+                </div>
+            </div>
+
+        </section>
     </main>
 
     <footer>
-        <!-- Your footer content here -->
     </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>

@@ -108,6 +108,7 @@ How will the user be able to add songs to a favorites tab?
 
 * Favorite songs should remain saved across all interactions on the website.
 
+* On mobile view, the All, Featured, Favorites, and Recents should use hamburger icon to access
 ### Function Specs
 [Add function specs here as you plan each milestone]
 
