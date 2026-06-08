@@ -109,6 +109,10 @@ How will the user be able to add songs to a favorites tab?
 * Favorite songs should remain saved across all interactions on the website.
 
 * On mobile view, the All, Featured, Favorites, and Recents should use hamburger icon to access
+
+DESIGN INTENT:
+CSS should be used to create a music recommendation webpage that has a color theme based of williams college school colors. The cards when highlighting should have a yellow border. The navigation tab elements should have a yellow background when being hovered. When hovering over the playlist cards, they should slightly enlarge and have a shadow, so that when the user hovers over the cards they can see more interactivity. When clicking on a card, a modal should appear on the screen, with the background having a gray tint, and the modal having a purple highlight around it.
+
 ### Function Specs
 [Add function specs here as you plan each milestone]
 

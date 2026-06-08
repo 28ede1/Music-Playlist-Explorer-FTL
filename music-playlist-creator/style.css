@@ -19,6 +19,13 @@ header {
     padding: 20px;
 }
 
+footer {
+    background-color: #500082;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
 header h1 {
     color:#FFD700;
 }
@@ -264,4 +271,161 @@ main {
     font-weight: bold;
 }
 
- 
+/* Hamburger Menu */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: #FFD700;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Media Queries */
+
+/* Desktop (default - already set above) */
+
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .hamburger-btn {
+        display: flex;
+    }
+
+    .control-panel {
+        display: none;
+        width: 100%;
+        order: 4;
+        margin-top: 10px;
+    }
+
+    .control-panel.active {
+        display: block;
+    }
+
+    .control-panel nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .playlist-card {
+        width: 40%;
+    }
+
+    .search-input {
+        width: 250px;
+    }
+}
+
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 24px;
+        order: 1;
+    }
+
+    .search-form {
+        order: 2;
+        flex: 1;
+        margin: 0 15px;
+    }
+
+    .search-input {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px 12px 8px 35px;
+    }
+
+    .search-icon {
+        width: 40px;
+        height: 20px;
+    }
+
+    .hamburger-btn {
+        display: flex;
+        order: 3;
+    }
+
+    .control-panel {
+        display: none;
+        width: 100%;
+        order: 4;
+        margin-top: 10px;
+    }
+
+    .control-panel.active {
+        display: block;
+    }
+
+    .control-panel nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .playlist-cards {
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .playlist-card {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+        margin: 10% auto;
+    }
+
+    .modal-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .modal-playlist-cover {
+        width: 120px;
+        height: 120px;
+    }
+
+    .song-card {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .song-card img {
+        width: 100%;
+        height: auto;
+    }
+}

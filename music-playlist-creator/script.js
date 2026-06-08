@@ -37,3 +37,9 @@ window.onclick = function(event) {
       modal.style.display = "none";
    }
 }
+
+// Hamburger menu toggle
+function toggleMenu() {
+   const controlPanel = document.querySelector('.control-panel');
+   controlPanel.classList.toggle('active');
+}
