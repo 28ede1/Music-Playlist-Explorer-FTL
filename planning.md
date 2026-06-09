@@ -3,6 +3,21 @@
 ### Data Shape
 [Leave blank — fill in before Milestone 3]
 
+playlist:
+    - Playlist Title
+    - Playlist Image
+    - Creator Name
+    - Data Added
+    - Like Count
+    - Song list (list of song objects)
+
+song:
+    - Song Name
+    - Song Image
+    - Artist Name
+    - Song Length
+
+
 ### UI and Interaction Rules
 [Leave blank — fill in before Milestone 1]
 
