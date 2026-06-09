@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDEs
+.cursor/
+.vscode/
+.idea/
+
+# Node modules (if you add them later)
+node_modules/
