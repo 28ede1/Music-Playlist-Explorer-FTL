@@ -12,7 +12,7 @@ body {
 
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #500082;
     color: white;
@@ -28,6 +28,18 @@ footer {
 
 header h1 {
     color:#FFD700;
+    margin: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cow-icon {
+    height: 4em;
+    width: auto;
 }
 
 .control-panel {
@@ -54,15 +66,15 @@ header h1 {
     border: 2px solid #ddd;
     border-radius: 20px;
     font-size: 16px;
-    width: 300px;
+    width: 350px;
     transition: border-color 0.3s ease;
-    
+
 }
 
+/* Handles behavior for removing default blue outline to a search box when you click/tab into it*/
 .search-input:focus {
     outline: none;
-    border-color: #500082;
-    box-shadow: 0 0 8px rgba(80, 0, 130, 0.3);
+    border-color: #FFD700;
 }
 
 .search-input:hover {
@@ -93,19 +105,17 @@ main {
     border: solid;
     overflow: hidden;
     padding-bottom: 15px;
-    transition: 0.2s;
-    cursor: pointer;
+    transition: .5s;
 }
 
 .playlist-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.7);
     border-color: #FFD700;
 }
 
 .playlist-card .playlist-cover {
     width: calc(100% - 20px);
-    height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     margin: 10px;
@@ -187,6 +197,7 @@ main {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .close:hover,
@@ -200,7 +211,6 @@ main {
     margin-bottom: 30px;
     align-items: flex-start;
     padding-bottom: 20px;
-    border-bottom: 2px solid #FFD700;
 }
 
 .modal-playlist-cover {
@@ -293,8 +303,8 @@ main {
 
 /* Desktop (default - already set above) */
 
-/* Tablet: 768px - 1024px */
-@media (max-width: 1024px) {
+/* Tablet: 768px - 1280px */
+@media (max-width: 1280px) {
     header {
         flex-wrap: wrap;
         justify-content: space-between;
@@ -330,16 +340,20 @@ main {
         width: 40%;
     }
 
+    .search-form {
+        flex: 1;
+        max-width: 600px;
+    }
+
     .search-input {
-        width: 250px;
+        width: 100%;
     }
 }
 
-/* Mobile: up to 767px */
-@media (max-width: 767px) {
+/* Mobile: up to 900px */
+@media (max-width: 900px) {
     header {
         flex-wrap: wrap;
-        justify-content: space-between;
         padding: 15px;
     }
 
