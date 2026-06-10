@@ -5,7 +5,7 @@ const playlistData = [
         image: "https://picsum.photos/300?random=1",
         creatorName: "Alex Rivers",
         dateAdded: "2026",
-        likeCount: 142,
+        likeCount: 0,
         songs: [
             {
                 title: "Sunset Dreams",

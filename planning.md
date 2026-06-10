@@ -208,3 +208,12 @@ The function should be called getPlaylistDescription.
 
 ### Decisions Log
 [One entry per milestone where you make spec-informed decisions]
+
+Milestone 7:
+In addition to the feature page on milestone 7 I am also going to have options to click that can showed the hearted playlist, and the playlist that were recently clicked on, as well as have an option to create a playlist be shown as well. If I have enough time to implement stretch features, I will add behavior for the buttons on click.
+
+The 5 or so options (All, Featured, Favorites, Recents, Create Playlist) should collapse into a hamburger menu on smaller screen sizes. This is so that the webpage can be more mobile-friendly. 
+
+Milestone 8:
+
+As an additional AI feature spec, I wanted to have Spotify API integration that would allow the user to also have playlist displayed and accompanying songs from spotify. The idea was to maintain the same data structure as the data found in the data.js file so that it would take too much extra working updating the data. Due to spotify web api rules apparently, I am not able to get songs for specific tracks, but I am able to get playlist, playlist name, playlist cover image, and playlist author based on a playlist id found from spotify. My current idea for the purposes of demoing is to create an algorithm that retrieves  playlist, playlist name, playlist cover image, and playlist author for a set amount of playlist on spotify, and just have the songs key for the playlist objects just take the song keys from the original data.js file.
