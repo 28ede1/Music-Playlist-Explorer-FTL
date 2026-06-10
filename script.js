@@ -4,7 +4,7 @@ const closeBtn = document.getElementsByClassName("close")[0];
 const shuffleBtn = document.getElementById("shuffle-btn");
 const descriptionBtn = document.getElementById("description-btn");
 
-let originalSongs = [];
+let originalSongs = []; // for saving list of original songs
 let currentPlaylistData = null;
 
 function displaySongs(songs) {
@@ -64,6 +64,7 @@ async function getPlaylistDescription() {
    // API configuration - API_KEY is loaded from config.js
    const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
    const MODEL = 'openrouter/free';
+   
 
    try {
       const response = await fetch(API_URL, {
