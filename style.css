@@ -210,7 +210,12 @@ main {
     margin-bottom: 30px;
     align-items: flex-start;
     padding-bottom: 20px;
-    border-bottom: 2px solid #FFD700;
+}
+
+.modal-cover-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .modal-playlist-cover {
@@ -219,6 +224,23 @@ main {
     object-fit: cover;
     border-radius: 8px;
     border: 2px solid #500082;
+}
+
+.shuffle-btn {
+    background-color: #500082;
+    color: white;
+    border: 2px solid #500082;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.shuffle-btn:hover {
+    background-color: #FFD700;
+    color: #500082;
+    border-color: #FFD700;
 }
 
 .modal-header-info h2 {

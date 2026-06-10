@@ -174,6 +174,12 @@ Example.
 #2
 Function meant for handling liking and unliking a playlist. Like buttons for the playlist cards should have both a "liked" and "not liked" state. When the user clicks the like button, it should enter the "liked" state, the like count should increase, and the icon should turn red. While the button remains in the "liked" state, the icon should stay red. If the user clicks the like button again, it should return to the "not liked" state, the like count should decrease, and the icon color should be reset.
 
+
+#3 
+There should be a shuffle button that appears in the modal.
+The shuffle button in the modal should be below the playlist cover image.
+The shuffle button should have similar behavior when hovered in terms of CSS styling. When the shuffle button is hit, the songs (apart of the song data in the playlist object selected) should have a randomized order. The function meant for shuffling should be implemented such that clicking shuffle multiple times reorders the songs randomly. Note that original order should be preserved. When you click out of the modal, the order of the songs should return to where they originally were.
+
 ### AI Feature Spec (Milestone 8)
 [Leave blank — fill in before Milestone 8]
 

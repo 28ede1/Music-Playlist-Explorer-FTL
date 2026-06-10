@@ -1,17 +1,14 @@
 // JavaScript for Opening and Closing the Modal
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementsByClassName("close")[0];
+const shuffleBtn = document.getElementById("shuffle-btn");
 
-function openPlaylistModal(playlistName, imageUrl, creator, songs) {
-   document.getElementById('modal-playlist-name').innerText = playlistName;
-   document.getElementById('modal-playlist-image').src = imageUrl;
-   document.getElementById('modal-playlist-creator').innerText = creator;
+let originalSongs = [];
 
+function displaySongs(songs) {
    const songList = document.getElementById('modal-song-list');
-   // Clears the modal content so old data doesn't stay when a new playlist is opened
-   songList.innerHTML = ''; 
+   songList.innerHTML = '';
 
-   // Creates a div element based on song information (songs appear in a list )
    songs.forEach(song => {
       const songCard = document.createElement('div');
       songCard.className = 'song-card';
@@ -26,12 +23,38 @@ function openPlaylistModal(playlistName, imageUrl, creator, songs) {
       `;
       songList.appendChild(songCard);
    });
+}
+
+function shuffleSongs() {
+   const shuffled = [...originalSongs];
+
+   for (let i = shuffled.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      const temp = shuffled[i];
+      shuffled[i] = shuffled[randomIndex];
+      shuffled[randomIndex] = temp;
+   }
+
+   displaySongs(shuffled);
+}
+
+function openPlaylistModal(playlistName, imageUrl, creator, songs) {
+   document.getElementById('modal-playlist-name').innerText = playlistName;
+   document.getElementById('modal-playlist-image').src = imageUrl;
+   document.getElementById('modal-playlist-creator').innerText = creator;
+
+   originalSongs = songs;
+   displaySongs(songs);
 
    modal.style.display = "block";
 }
 
 closeBtn.onclick = function() {
    modal.style.display = "none";
+}
+
+shuffleBtn.onclick = function() {
+   shuffleSongs();
 }
 
 // if the user clicks anywhere on the page, the modal gets deleted (modal and modal-content are two different parts of the modal display, modal includes the entire screen)
