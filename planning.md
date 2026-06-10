@@ -4,18 +4,18 @@
 [Leave blank — fill in before Milestone 3]
 
 playlist:
-    - Playlist Title
-    - Playlist Image
-    - Creator Name
-    - Data Added
-    - Like Count
-    - Song list (list of song objects)
+    - title (string) — name of the playlist
+    - image (string) — URL or file path for the playlist cover image
+    - creatorName (string) — name of the user who created the playlist
+    - dateAdded (string) — date the playlist was created or added
+    - likeCount (number) — total number of likes on the playlist
+    - songs (array of song objects) — list of songs contained in the playlist
 
 song:
-    - Song Name
-    - Song Image
-    - Artist Name
-    - Song Length
+    - title (string) — name of the song
+    - image (string) — URL or file path for the song's album artwork
+    - artistName (string) — name of the artist who performs the song
+    - length (string) — duration of the song in MM:SS format
 
 
 ### UI and Interaction Rules
@@ -130,6 +130,47 @@ CSS should be used to create a music recommendation webpage that has a color the
 
 ### Function Specs
 [Add function specs here as you plan each milestone]
+
+#1 Function for creating a playlist card
+
+The function should be called, 
+
+function create_playlist_card(playlist_object) {
+}
+
+playlist_object should be the following shape:
+
+const playlist = {
+    title: "Playlist Title",
+    image: "playlist-image-url",
+    creatorName: "Creator Name",
+    dateAdded: "YYYY-MM-DD",
+    likeCount: 0,
+    songs: [
+        {
+            title: "Song Title",
+            image: "song-image-url",
+            artistName: "Artist Name",
+            albumName: "Album Name",
+            length: "0:00"
+        }
+    ]
+};
+
+Create and return an <article> element with the class "playlist-card" using the provided playlist object. The article's onclick attribute should call openPlaylistModal() and pass the playlist's title, image, creatorName, and songs array as arguments. Create an <img> element with the class playlist-cover, setting its src to the playlist's image and its alt text to "Playlist cover". Create an <h3> element with the class playlist-title containing the playlist's title, a <p> element with the class playlist-creator containing the playlist's creatorName, and a <p> element with the class playlist-date containing the playlist's dateAdded. Also create a <button> element with the class like-btn and the attribute onclick="event.stopPropagation()". Inside the button, create a <span> with the class heart-icon containing the heart symbol (♥) and a <span> with the class like-count containing the playlist's likeCount. Append all elements so the final structure matches the provided example markup while dynamically populating all values from the playlist object. The created <article> element should be a child of the <section> element with the "playlist-cards" class
+
+Example.
+<article class="playlist-card" onclick="openPlaylistModal('Playlist Title', 'assets/img/playlist.png', 'Creator Name', [{title: 'Song 1', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 2', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}, {title: 'Song 3', artist: 'Artist Name', album: 'Album Name', duration: '00:00', image: 'assets/img/song.png'}])">
+                <img src="assets/img/playlist.png" alt="Playlist cover" class="playlist-cover">
+                <h3 class="playlist-title">Playlist Title</h3>
+                <p class="playlist-creator">Creator Name</p>
+                <p class="playlist-date">Date Added</p>
+                <button class="like-btn" onclick="event.stopPropagation()">
+                    <span class="heart-icon">♥</span>
+                    <span class="like-count">5</span>
+                </button>
+</article>
+
 
 ### AI Feature Spec (Milestone 8)
 [Leave blank — fill in before Milestone 8]
