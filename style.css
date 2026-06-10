@@ -340,8 +340,8 @@ main {
 
 /* Desktop (default - already set above) */
 
-/* Tablet: 768px - 1024px */
-@media (max-width: 1024px) {
+/* Tablet and smaller: 1450px and below (earlier breakpoint for 6 buttons) */
+@media (max-width: 1450px) {
     header {
         flex-wrap: wrap;
         justify-content: space-between;

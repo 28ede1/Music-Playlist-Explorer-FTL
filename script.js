@@ -158,6 +158,42 @@ function toggleMenu() {
    controlPanel.classList.toggle('active');
 }
 
+// Sort playlists by like count (highest to lowest)
+function sortByLikes() {
+   const sortedPlaylists = [...playlistData].sort((a, b) => b.likeCount - a.likeCount);
+   displayPlaylists(sortedPlaylists);
+}
+
+// Sort playlists by date (most recent first)
+function sortByDate() {
+   const sortedPlaylists = [...playlistData].sort((a, b) => {
+      return parseInt(b.dateAdded) - parseInt(a.dateAdded);
+   });
+   displayPlaylists(sortedPlaylists);
+}
+
+// Sort playlists alphabetically by name (A to Z)
+function sortByName() {
+   const sortedPlaylists = [...playlistData].sort((a, b) => {
+      return a.title.localeCompare(b.title);
+   });
+   displayPlaylists(sortedPlaylists);
+}
+
+// Display playlists in the order provided
+function displayPlaylists(playlists) {
+   const playlistCardsSection = document.querySelector('.playlist-cards');
+
+   // Remove existing cards
+   const existingCards = playlistCardsSection.querySelectorAll('.playlist-card');
+   existingCards.forEach(card => card.remove());
+
+   // Add sorted playlists
+   playlists.forEach(playlist => {
+      create_playlist_card(playlist);
+   });
+}
+
 function create_playlist_card(playlist_object) {
    const article = document.createElement('article');
    article.className = 'playlist-card';
@@ -209,7 +245,7 @@ function create_playlist_card(playlist_object) {
    likeCount.textContent = playlist_object.likeCount;
 
    let isLiked = false;
-   
+
    // click behavior example
    likeBtn.onclick = function(event) {
       event.stopPropagation();
@@ -217,12 +253,14 @@ function create_playlist_card(playlist_object) {
       if (isLiked) {
          // Unlike: decrease count and reset color
          isLiked = false;
-         likeCount.textContent = parseInt(likeCount.textContent) - 1;
+         playlist_object.likeCount--;
+         likeCount.textContent = playlist_object.likeCount;
          heartIcon.style.color = '';
       } else {
          // Like: increase count and turn red
          isLiked = true;
-         likeCount.textContent = parseInt(likeCount.textContent) + 1;
+         playlist_object.likeCount++;
+         likeCount.textContent = playlist_object.likeCount;
          heartIcon.style.color = 'red';
       }
    };
