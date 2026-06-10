@@ -10,3 +10,6 @@
 
 # Node modules (if you add them later)
 node_modules/
+
+# Environment variables and API keys
+config.js

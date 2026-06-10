@@ -142,11 +142,15 @@
                     <div class="modal-header">
                         <div class="modal-cover-container">
                             <img id="modal-playlist-image" src="" alt="Playlist Image" class="modal-playlist-cover">
-                            <button id="shuffle-btn" class="shuffle-btn">🔀 Shuffle</button>
+                            <div class="modal-buttons">
+                                <button id="shuffle-btn" class="shuffle-btn">🔀 Shuffle</button>
+                                <button id="description-btn" class="description-btn">✨ Get Description</button>
+                            </div>
                         </div>
                         <div class="modal-header-info">
                             <h2 id="modal-playlist-name"></h2>
                             <p id="modal-playlist-creator"></p>
+                            <p id="playlist-description" class="playlist-description"></p>
                         </div>
                     </div>
 
@@ -161,6 +165,7 @@
         <p>@ WillyTunes, 2026 Music Playlist Explorer</p>
     </footer>
     <script src="data/data.js"></script>
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 

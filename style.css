@@ -226,7 +226,14 @@ main {
     border: 2px solid #500082;
 }
 
-.shuffle-btn {
+.modal-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.shuffle-btn,
+.description-btn {
     background-color: #500082;
     color: white;
     border: 2px solid #500082;
@@ -237,10 +244,18 @@ main {
     transition: all 0.3s ease;
 }
 
-.shuffle-btn:hover {
+.shuffle-btn:hover,
+.description-btn:hover {
     background-color: #FFD700;
     color: #500082;
     border-color: #FFD700;
+}
+
+.playlist-description {
+    margin-top: 10px;
+    font-style: italic;
+    line-height: 1.5;
+    color: purple;
 }
 
 .modal-header-info h2 {

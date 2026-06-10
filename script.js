@@ -2,8 +2,10 @@
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementsByClassName("close")[0];
 const shuffleBtn = document.getElementById("shuffle-btn");
+const descriptionBtn = document.getElementById("description-btn");
 
 let originalSongs = [];
+let currentPlaylistData = null;
 
 function displaySongs(songs) {
    const songList = document.getElementById('modal-song-list');
@@ -38,10 +40,90 @@ function shuffleSongs() {
    displaySongs(shuffled);
 }
 
+async function getPlaylistDescription() {
+   const descriptionElement = document.getElementById('playlist-description');
+
+   if (!currentPlaylistData) {
+      descriptionElement.innerText = 'Error: No playlist data available';
+      descriptionElement.style.color = 'purple';
+      return;
+   }
+
+
+   // Show loading message
+   descriptionElement.innerText = 'Generating description...';
+   descriptionElement.style.color = 'purple';
+
+   // Prepare the prompt for the AI
+   const songList = currentPlaylistData.songs
+      .map(song => `${song.title} by ${song.artist}`)
+      .join(', ');
+
+   const prompt = `Generate a 2-3 sentence description for a music playlist titled "${currentPlaylistData.title}" created by ${currentPlaylistData.creator}. The playlist contains these songs: ${songList}. Capture the vibe and theme of the playlist without listing songs individually. Avoid generic marketing language.`;
+
+   // API configuration - API_KEY is loaded from config.js
+   const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+   const MODEL = 'openrouter/free';
+
+   try {
+      const response = await fetch(API_URL, {
+         method: 'POST',
+         headers: {
+            'Authorization': `Bearer ${API_KEY}`,
+            'Content-Type': 'application/json',
+            'HTTP-Referer': window.location.href,
+            'X-Title': 'Music Playlist Explorer'
+         },
+         body: JSON.stringify({
+            model: MODEL,
+            messages: [
+               {
+                  role: 'system',
+                  content: 'You are a creative music playlist description writer. Write concise, engaging descriptions that capture the mood and vibe of playlists.'
+               },
+               {
+                  role: 'user',
+                  content: prompt
+               }
+            ],
+         }),
+      });
+
+      if (!response.ok) {
+         throw new Error(`API request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      const description = data.choices[0].message.content.trim();
+
+      if (description) {
+         descriptionElement.innerText = description;
+         descriptionElement.style.color = 'purple';
+      } else {
+         descriptionElement.innerText = 'Error: Could not generate description';
+         descriptionElement.style.color = 'purple';
+      }
+   } catch (error) {
+      console.error('getPlaylistDescription failed:', error);
+      descriptionElement.innerText = 'Error retrieving description. Please try again.';
+      descriptionElement.style.color = 'purple';
+   }
+}
+
 function openPlaylistModal(playlistName, imageUrl, creator, songs) {
    document.getElementById('modal-playlist-name').innerText = playlistName;
    document.getElementById('modal-playlist-image').src = imageUrl;
    document.getElementById('modal-playlist-creator').innerText = creator;
+
+   // Clear any previous description
+   document.getElementById('playlist-description').innerText = '';
+
+   // Store current playlist data for AI description
+   currentPlaylistData = {
+      title: playlistName,
+      creator: creator,
+      songs: songs
+   };
 
    originalSongs = songs;
    displaySongs(songs);
@@ -55,6 +137,10 @@ closeBtn.onclick = function() {
 
 shuffleBtn.onclick = function() {
    shuffleSongs();
+}
+
+descriptionBtn.onclick = async function() {
+   await getPlaylistDescription();
 }
 
 // if the user clicks anywhere on the page, the modal gets deleted (modal and modal-content are two different parts of the modal display, modal includes the entire screen)
