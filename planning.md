@@ -171,6 +171,8 @@ Example.
                 </button>
 </article>
 
+#2
+Function meant for handling liking and unliking a playlist. Like buttons for the playlist cards should have both a "liked" and "not liked" state. When the user clicks the like button, it should enter the "liked" state, the like count should increase, and the icon should turn red. While the button remains in the "liked" state, the icon should stay red. If the user clicks the like button again, it should return to the "not liked" state, the like count should decrease, and the icon color should be reset.
 
 ### AI Feature Spec (Milestone 8)
 [Leave blank — fill in before Milestone 8]
