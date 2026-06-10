@@ -198,5 +198,13 @@ When the user hits the featured tab, a playlist should be chosen at random (if d
 ### AI Feature Spec (Milestone 8)
 [Leave blank — fill in before Milestone 8]
 
+The modal should have a "Get Description" button to the right of the shuffle button, it should have the same similar html structure and css styling. When the user clicks the "Get Description" button, it should take advantage of a AI text generation API.
+
+Input should be the playlist content and song content, and the modal should generate a 2-3 setnence description that captures the vibe and theme of the playlist. The modal should avoid listing out songs individually and should not use generic marketing language. 
+
+The output should generate (in purple color) as a paragraph element that fits in nicely with the plalist header, and playlist author. It could probably be put underneath the playlist author. While the text is generating, there should be an appropriate text being displayed. If there is an error, there should be text saying there was an error with retrieving description that should be displayed. 
+
+The function should be called getPlaylistDescription.
+
 ### Decisions Log
 [One entry per milestone where you make spec-informed decisions]
