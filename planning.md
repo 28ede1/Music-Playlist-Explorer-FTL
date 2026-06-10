@@ -180,6 +180,21 @@ There should be a shuffle button that appears in the modal.
 The shuffle button in the modal should be below the playlist cover image.
 The shuffle button should have similar behavior when hovered in terms of CSS styling. When the shuffle button is hit, the songs (apart of the song data in the playlist object selected) should have a randomized order. The function meant for shuffling should be implemented such that clicking shuffle multiple times reorders the songs randomly. Note that original order should be preserved. When you click out of the modal, the order of the songs should return to where they originally were.
 
+#4
+Implement a dedicated Featured page that randomly selects and displays a playlist with an enlarged cover image and playlist name on the left and the song list ont he right and to add navigation between the Featured page and the All Playlists page. It should be a separate HTML fil ewiht its own layout, its own JavaScript logic, and navigation system that connects it to the rest of the app.
+
+The All button should redirect the user to the main page (index.html). The featured button should redirect to the featured page.
+
+The layout of the page — what sections exist, what goes where?
+
+* The featured page should have alot of the same styling and flexbox and media query behavior. It should have the same header structure with the title, cow image, but not the search function because it makes less sense. It can still use the hamburger icon behavior, but it does not have a favorites, a recents, or create playlist
+
+* The main section of the page should have the elements specified previously. The footer of the page can match 1 to 1 with the homepage.
+
+A function spec for your random playlist selection function: what does it take in, what does it return, and when does it run?
+
+When the user hits the featured tab, a playlist should be chosen at random (if data in data.js is empty, use the same error handling as was used for the All tab). The chosen playlist will be shown and the songs will be shown as specified earlier. If the user clicks to a different tab or hits the featured tab again, the randomly chosen playlist should change.
+
 ### AI Feature Spec (Milestone 8)
 [Leave blank — fill in before Milestone 8]
 

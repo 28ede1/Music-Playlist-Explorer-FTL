@@ -161,6 +161,14 @@ function create_playlist_card(playlist_object) {
 document.addEventListener('DOMContentLoaded', function() {
    const playlistCardsSection = document.querySelector('.playlist-cards');
 
+   // Remove any existing dynamically created playlist cards
+   const existingCards = playlistCardsSection.querySelectorAll('.playlist-card');
+   existingCards.forEach(card => card.remove());
+
+   // Remove any existing no-playlist messages
+   const existingMessages = playlistCardsSection.querySelectorAll('.no-playlists-message');
+   existingMessages.forEach(msg => msg.remove());
+
    if (!playlistData || playlistData.length === 0) {
       const message = document.createElement('p');
       message.className = 'no-playlists-message';

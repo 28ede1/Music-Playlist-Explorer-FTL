@@ -1,0 +1,169 @@
+/* Featured Page Specific Styles */
+
+.featured-container {
+    padding: 40px;
+    min-height: 500px;
+}
+
+.featured-playlist-header {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.featured-cover-container {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.featured-playlist-cover {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #500082;
+    box-shadow: 0 10px 30px rgba(80, 0, 130, 0.3);
+}
+
+.featured-cover-container h2 {
+    margin: 10px 0 5px 0;
+    font-size: 32px;
+    color: #500082;
+    text-align: center;
+}
+
+.featured-cover-container p {
+    margin: 0;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+}
+
+.featured-song-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.featured-song-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.featured-song-card:hover {
+    border-color: #FFD700;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.featured-song-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.featured-song-info {
+    flex: 1;
+}
+
+.featured-song-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #500082;
+    font-weight: bold;
+}
+
+.featured-song-info p {
+    margin: 0;
+    font-size: 15px;
+    color: #666;
+}
+
+.featured-song-duration {
+    color: #500082;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.no-playlists-message {
+    text-align: center;
+    font-size: 24px;
+    color: #666;
+    margin-top: 50px;
+}
+
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+    .featured-playlist-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .featured-playlist-cover {
+        width: 300px;
+        height: 300px;
+    }
+
+    .featured-song-list {
+        width: 100%;
+    }
+}
+
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+    .featured-container {
+        padding: 20px;
+    }
+
+    .featured-playlist-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .featured-cover-container {
+        padding: 10px;
+    }
+
+    .featured-playlist-cover {
+        width: 250px;
+        height: 250px;
+    }
+
+    .featured-cover-container h2 {
+        font-size: 24px;
+    }
+
+    .featured-cover-container p {
+        font-size: 16px;
+    }
+
+    .featured-song-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .featured-song-card img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .featured-song-duration {
+        margin-left: 0;
+    }
+}

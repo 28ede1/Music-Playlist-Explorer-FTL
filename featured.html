@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Featured Playlist - Music Playlist Explorer</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="featured.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>WillyTunes</h1>
+            <img src="assets/img/cow_header_icon.png" alt="Cow Icon" class="cow-icon">
+        </div>
+
+        <button class="hamburger-btn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <section class="control-panel">
+            <nav>
+                <button class="nav-btn" onclick="window.location.href='index.html'">All</button>
+                <button class="nav-btn" onclick="window.location.href='featured.html'">Featured</button>
+            </nav>
+        </section>
+
+    </header>
+
+    <main>
+        <section class="featured-container">
+            <div class="featured-playlist-header">
+                <div class="featured-cover-container">
+                    <img id="featured-playlist-image" src="" alt="Featured Playlist" class="featured-playlist-cover">
+                    <h2 id="featured-playlist-name"></h2>
+                    <p id="featured-playlist-creator"></p>
+                </div>
+
+                <div id="featured-song-list" class="featured-song-list"></div>
+            </div>
+
+            <div id="no-playlist-message" class="no-playlists-message" style="display: none;">
+                No playlists available to feature
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>@ WillyTunes, 2026 Music Playlist Explorer</p>
+    </footer>
+    <script src="data/data.js"></script>
+    <script src="featured.js"></script>
+</body>
+
+</html>
