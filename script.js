@@ -90,9 +90,6 @@ function create_playlist_card(playlist_object) {
 
    const likeBtn = document.createElement('button');
    likeBtn.className = 'like-btn';
-   likeBtn.onclick = function(event) {
-      event.stopPropagation();
-   };
 
    const heartIcon = document.createElement('span');
    heartIcon.className = 'heart-icon';
@@ -101,6 +98,25 @@ function create_playlist_card(playlist_object) {
    const likeCount = document.createElement('span');
    likeCount.className = 'like-count';
    likeCount.textContent = playlist_object.likeCount;
+
+   let isLiked = false;
+   
+   // click behavior example
+   likeBtn.onclick = function(event) {
+      event.stopPropagation();
+
+      if (isLiked) {
+         // Unlike: decrease count and reset color
+         isLiked = false;
+         likeCount.textContent = parseInt(likeCount.textContent) - 1;
+         heartIcon.style.color = '';
+      } else {
+         // Like: increase count and turn red
+         isLiked = true;
+         likeCount.textContent = parseInt(likeCount.textContent) + 1;
+         heartIcon.style.color = 'red';
+      }
+   };
 
    likeBtn.appendChild(heartIcon);
    likeBtn.appendChild(likeCount);
