@@ -197,7 +197,6 @@ main {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .close:hover,
@@ -211,6 +210,7 @@ main {
     margin-bottom: 30px;
     align-items: flex-start;
     padding-bottom: 20px;
+    border-bottom: 2px solid #FFD700;
 }
 
 .modal-playlist-cover {
@@ -303,8 +303,8 @@ main {
 
 /* Desktop (default - already set above) */
 
-/* Tablet: 768px - 1280px */
-@media (max-width: 1280px) {
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
     header {
         flex-wrap: wrap;
         justify-content: space-between;
@@ -340,20 +340,16 @@ main {
         width: 40%;
     }
 
-    .search-form {
-        flex: 1;
-        max-width: 600px;
-    }
-
     .search-input {
-        width: 100%;
+        width: 250px;
     }
 }
 
-/* Mobile: up to 900px */
-@media (max-width: 900px) {
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
     header {
         flex-wrap: wrap;
+        justify-content: space-between;
         padding: 15px;
     }
 
