@@ -148,21 +148,23 @@ Deployed Project: https://28ede1.github.io/Music-Playlist-Explorer-FTL/
 
 `TODO://` Paste the **shareable link** to your animated app walkthrough below (replace `ADD_LOOM_LINK_HERE`). GitHub markdown won't render an embedded Loom player, so a plain link is what graders will use. Make sure the link is public and playable before submitting. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website. (🚫 Remove this paragraph after adding your walkthrough link.)
 
-**Walkthrough video:** [Music Playlist Explorer Walkthrough](ADD_LOOM_LINK_HERE)
+**Walkthrough video:** [Music Playlist Explorer Walkthrough](https://www.loom.com/share/94ec6be5849f4d06a49ad88cc2845b0a)
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The labs definitely helped with the basics like DOM manipulation and event listeners, those parts felt pretty solid. But honestly the AI API integration was kinda new territory, we touched on fetch requests but connecting to OpenRouter and handling the async stuff took me a while to figure out. Also the shuffle algorithm seemed simple at first but making sure it actually randomized properly without breaking anything took some trial and error. The modal was tricky too, getting it to display the right playlist data when clicked took more debugging than I expected.
+
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time I would've definitely implemented the search functionality, that seems really useful for when you have tons of playlists. Also would've liked to add actual audio playback instead of just displaying songs. The sorting works but I could've made it smoother with some animations when the playlists reorder. And honestly I would've spent more time on the styling, maybe add some hover effects and make it look more polished overall. The API integration could be faster too, right now it takes a sec to get the description back.
+
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The demo went pretty well! The like feature and shuffle both worked smoothly which was good. The AI description button was definitely the coolest part to show off. What didn't go as planned, I had to swap back to demo data instead of keeping the Spotify playlists I was working with, so that was kinda disappointing. Also realized during demo that my layout looks different on smaller screens, should've tested responsive design more. One thing I noticed from my peers was some of them had really smooth transitions and animations that made the whole experience feel more professional. Next time I want to focus more on those little details that make the UI feel more polished and less basic.
 
 ### Open-source libraries used
 
