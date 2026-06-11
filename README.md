@@ -1,5 +1,3 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Music Playlist Explorer
 
 Submitted by: **Emmanuel Ekpenyong**
@@ -89,52 +87,52 @@ Deployed Project: https://28ede1.github.io/Music-Playlist-Explorer-FTL/
 
 #### STRETCH FEATURES
 
-- [ ] **Add New Playlists**
-  - [ ] Allow users to create new playlists.
-  - [ ] Using a form, users can input playlist:
-    - [ ] Name
-    - [ ] Author
-    - [ ] Cover image
-    - [ ] Add one or more songs to the playlist, specifying the song's:
-      - [ ] Title
-      - [ ] Artist
-  - [ ] The resulting playlist should display in the grid view.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself adding at least two songs to the playlist. 
+- [ x] **Add New Playlists**
+  - [ x] Allow users to create new playlists.
+  - [x ] Using a form, users can input playlist:
+    - [x ] Name
+    - [x] Author
+    - [x ] Cover image
+    - [x ] Add one or more songs to the playlist, specifying the song's:
+      - [ x] Title
+      - [ x] Artist
+  - [ x] The resulting playlist should display in the grid view.
+  - [ x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself adding at least two songs to the playlist. 
 
-- [ ] **Edit Existing Playlists**
-  - [ ] Enable users to modify the details of existing playlists.
-  - [ ] Add an edit button to each playlist tile.
-  - [ ] Users can update the playlist:
-    - [ ] Name
-    - [ ] Author
-    - [ ] Songs
-  - [ ] The playlist grid view and playlist detail modal should update to display any changes (see Required Features, Criterion 1 & 2).
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself:
-    - [ ] Editing all of a playlist's features (name, creator, AND songs)
-    - [ ] Editing some of a playlist's features (name, creator, OR songs) 
+- [x ] **Edit Existing Playlists**
+  - [x ] Enable users to modify the details of existing playlists.
+  - [x] Add an edit button to each playlist tile.
+  - [x ] Users can update the playlist:
+    - [ x] Name
+    - [ x] Author
+    - [ x] Songs
+  - [ x] The playlist grid view and playlist detail modal should update to display any changes (see Required Features, Criterion 1 & 2).
+  - [ x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself:
+    - [x ] Editing all of a playlist's features (name, creator, AND songs)
+    - [ x] Editing some of a playlist's features (name, creator, OR songs) 
 
-- [ ] **Delete Playlists**
-  - [ ] Add a delete button to each playlist tile within the grid view.
-  - [ ] When clicked, the playlist is removed from the playlist grid view.
+- [x ] **Delete Playlists**
+  - [ x] Add a delete button to each playlist tile within the grid view.
+  - [ x] When clicked, the playlist is removed from the playlist grid view.
 
-- [ ] **Search Functionality**
-  - [ ] Implement a search bar that allows users to filter playlists by:
-    - [ ] Name 
-    - [ ] Author
-  - [ ] The search bar should include:
-    - [ ] Text input field
-    - [ ] Submit/Search Button
-    - [ ] Clear Button
-  - [ ] Playlists matching the search query in the text input are displayed in a grid view when the user:
-    - [ ] Presses the Enter Key
-    - [ ] Clicks the Submit/Search Button 
-  - [ ] User can click the clear button. When clicked:
-    - [ ] All text in the text input field is deleted
-    - [ ] All playlists in the `data.json` file are displayed in a grid view
-    - [ ] **Optional:** If the Add Playlist, Edit Existing Playlist, or Delete Playlist stretch features were implemented:
-      - [ ] If users can add a playlist, added playlists should be included in search results.
-      - [ ] If users can edit a playlist, search results should reflect the latest edits to each playlist.
-      - [ ] If users can delete a playlist, deleted playlists should no longer be included in search results.
+- [ 🚫] **Search Functionality**
+  - [ 🚫] Implement a search bar that allows users to filter playlists by:
+    - [🚫 ] Name 
+    - [ 🚫] Author
+  - [🚫 ] The search bar should include:
+    - [🚫 ] Text input field
+    - [ 🚫] Submit/Search Button
+    - [ 🚫] Clear Button
+  - [ 🚫] Playlists matching the search query in the text input are displayed in a grid view when the user:
+    - [🚫 ] Presses the Enter Key
+    - [🚫 ] Clicks the Submit/Search Button 
+  - [🚫 ] User can click the clear button. When clicked:
+    - [🚫 ] All text in the text input field is deleted
+    - [🚫 ] All playlists in the `data.json` file are displayed in a grid view
+    - [ 🚫] **Optional:** If the Add Playlist, Edit Existing Playlist, or Delete Playlist stretch features were implemented:
+      - [🚫 ] If users can add a playlist, added playlists should be included in search results.
+      - [ 🚫] If users can edit a playlist, search results should reflect the latest edits to each playlist.
+      - [ 🚫] If users can delete a playlist, deleted playlists should no longer be included in search results.
       - **Note:** You will not be graded on the implementation of this optional subfeature to keep your grade of this stretch feature independent of your implementation of other stretch features. However, we highly suggest including this in your implementation to model realistic behavior of real applications. 
 
 - [ x] **Sorting Options**
@@ -148,7 +146,7 @@ Deployed Project: https://28ede1.github.io/Music-Playlist-Explorer-FTL/
 
 `TODO://` Paste the **shareable link** to your animated app walkthrough below (replace `ADD_LOOM_LINK_HERE`). GitHub markdown won't render an embedded Loom player, so a plain link is what graders will use. Make sure the link is public and playable before submitting. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website. (🚫 Remove this paragraph after adding your walkthrough link.)
 
-**Walkthrough video:** [Music Playlist Explorer Walkthrough](https://www.loom.com/share/94ec6be5849f4d06a49ad88cc2845b0a)
+**Walkthrough video:** [Music Playlist Explorer Walkthrough](https://www.loom.com/share/a8cb14888aec4d2eaa87103e6f6878b7)
 
 ### Reflection
 
@@ -173,3 +171,5 @@ The demo went pretty well! The like feature and shuffle both worked smoothly whi
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+Shout out Della Lee for helping me debug my Open Router API!
