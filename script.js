@@ -165,8 +165,8 @@ function deletePlaylist(playlistObject, cardElement) {
    const confirmation = confirm(`Are you sure you want to delete "${playlistObject.title}"?`);
 
    if (confirmation) {
-      // Find and remove from playlistData array
-      const index = playlistData.findIndex(p => p.title === playlistObject.title && p.creatorName === playlistObject.creatorName);
+      // Find and remove from playlistData array using unique ID
+      const index = playlistData.findIndex(p => p._id === playlistObject._id);
       if (index > -1) {
          playlistData.splice(index, 1);
       }
@@ -273,7 +273,10 @@ document.getElementById('edit-form').onsubmit = function(event) {
       image: song.image
    }));
 
-   currentEditCard.onclick = function() {
+   currentEditCard.onclick = function(event) {
+      // Ignore clicks on buttons
+      if (event.target.closest('button')) return;
+
       openPlaylistModal(
          currentEditPlaylist.title,
          currentEditPlaylist.image,
@@ -282,8 +285,8 @@ document.getElementById('edit-form').onsubmit = function(event) {
       );
    };
 
-   // Update in playlistData array
-   const index = playlistData.findIndex(p => p === currentEditPlaylist);
+   // Update in playlistData array using unique ID
+   const index = playlistData.findIndex(p => p._id === currentEditPlaylist._id);
    if (index > -1) {
       playlistData[index] = currentEditPlaylist;
    }
@@ -324,15 +327,32 @@ function displayPlaylists(playlists) {
    const existingCards = playlistCardsSection.querySelectorAll('.playlist-card');
    existingCards.forEach(card => card.remove());
 
+   // Remove any existing no-playlist messages
+   const existingMessages = playlistCardsSection.querySelectorAll('.no-playlists-message');
+   existingMessages.forEach(msg => msg.remove());
+
    // Add sorted playlists
-   playlists.forEach(playlist => {
-      create_playlist_card(playlist);
-   });
+   if (playlists.length === 0) {
+      const message = document.createElement('p');
+      message.className = 'no-playlists-message';
+      message.textContent = 'No playlists found';
+      playlistCardsSection.appendChild(message);
+   } else {
+      playlists.forEach(playlist => {
+         create_playlist_card(playlist);
+      });
+   }
 }
 
 function create_playlist_card(playlist_object) {
    const article = document.createElement('article');
    article.className = 'playlist-card';
+
+   // Store a unique identifier on the card
+   if (!playlist_object._id) {
+      playlist_object._id = `playlist_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
+   }
+   article.dataset.playlistId = playlist_object._id;
 
    // Convert songs array to the format expected by openPlaylistModal
    const formattedSongs = playlist_object.songs.map(song => ({
@@ -343,7 +363,10 @@ function create_playlist_card(playlist_object) {
       image: song.image
    }));
 
-   article.onclick = function() {
+   article.onclick = function(event) {
+      // Ignore clicks on buttons
+      if (event.target.closest('button')) return;
+
       openPlaylistModal(
          playlist_object.title,
          playlist_object.image,
@@ -412,7 +435,13 @@ function create_playlist_card(playlist_object) {
 
    editBtn.onclick = function(event) {
       event.stopPropagation();
-      openEditModal(playlist_object, article);
+      // Find the current playlist in the array using the unique ID
+      const currentPlaylist = playlistData.find(p => p._id === playlist_object._id);
+      if (currentPlaylist) {
+         openEditModal(currentPlaylist, article);
+      } else {
+         alert('Error: Playlist not found. Please refresh the page.');
+      }
    };
 
    // Create delete button
