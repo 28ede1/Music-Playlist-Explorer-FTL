@@ -38,7 +38,7 @@
                 <button class="nav-btn" onclick="sortByLikes()">Sort by Likes</button>
                 <button class="nav-btn" onclick="sortByDate()">Sort by Date</button>
                 <button class="nav-btn" onclick="sortByName()">Sort by Name</button>
-                <button class="nav-btn" class="create-playlist-btn">Create Playlist</button>
+                <button class="nav-btn" onclick="openCreateModal()">Create Playlist</button>
             </nav>
         </section>
 
@@ -156,6 +156,86 @@
                     </div>
 
                     <div id="modal-song-list" class="modal-song-list"></div>
+                </div>
+            </div>
+
+            <!-- Edit Modal -->
+            <div id="edit-modal" class="modal">
+                <div class="modal-content edit-modal-content">
+                    <span class="close" id="edit-close">&times;</span>
+                    <h2>Edit Playlist</h2>
+
+                    <form id="edit-form">
+                        <div class="form-group">
+                            <label for="edit-title">Playlist Title:</label>
+                            <input type="text" id="edit-title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-creator">Creator Name:</label>
+                            <input type="text" id="edit-creator" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-image">Cover Image URL:</label>
+                            <input type="text" id="edit-image" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-date">Date Added:</label>
+                            <input type="text" id="edit-date" required>
+                        </div>
+
+                        <h3>Songs</h3>
+                        <div id="edit-songs-list"></div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="cancel-btn" id="edit-cancel">Cancel</button>
+                            <button type="submit" class="save-btn">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Create Playlist Modal -->
+            <div id="create-modal" class="modal">
+                <div class="modal-content edit-modal-content">
+                    <span class="close" id="create-close">&times;</span>
+                    <h2>Create New Playlist</h2>
+
+                    <form id="create-form">
+                        <div class="form-group">
+                            <label for="create-title">Playlist Title:</label>
+                            <input type="text" id="create-title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="create-creator">Creator Name:</label>
+                            <input type="text" id="create-creator" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="create-image">Cover Image URL:</label>
+                            <input type="text" id="create-image" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="create-date">Date Added:</label>
+                            <input type="text" id="create-date" required>
+                        </div>
+
+                        <h3>Songs</h3>
+                        <div id="create-songs-list">
+                            <!-- Songs will be added dynamically -->
+                        </div>
+
+                        <button type="button" class="add-song-btn" id="add-song-btn">+ Add Song</button>
+
+                        <div class="form-buttons">
+                            <button type="button" class="cancel-btn" id="create-cancel">Cancel</button>
+                            <button type="submit" class="save-btn">Create Playlist</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 

@@ -159,6 +159,141 @@ function toggleMenu() {
    controlPanel.classList.toggle('active');
 }
 
+// Delete playlist function
+function deletePlaylist(playlistObject, cardElement) {
+   // Show confirmation dialog
+   const confirmation = confirm(`Are you sure you want to delete "${playlistObject.title}"?`);
+
+   if (confirmation) {
+      // Find and remove from playlistData array
+      const index = playlistData.findIndex(p => p.title === playlistObject.title && p.creatorName === playlistObject.creatorName);
+      if (index > -1) {
+         playlistData.splice(index, 1);
+      }
+
+      // Remove from display
+      cardElement.remove();
+
+      // Check if there are no playlists left
+      const playlistCardsSection = document.querySelector('.playlist-cards');
+      const remainingCards = playlistCardsSection.querySelectorAll('.playlist-card');
+
+      if (remainingCards.length === 0) {
+         const message = document.createElement('p');
+         message.className = 'no-playlists-message';
+         message.textContent = 'No playlists found';
+         playlistCardsSection.insertBefore(message, playlistCardsSection.firstChild);
+      }
+   }
+}
+
+// Open edit modal
+let currentEditPlaylist = null;
+let currentEditCard = null;
+
+function openEditModal(playlistObject, cardElement) {
+   currentEditPlaylist = playlistObject;
+   currentEditCard = cardElement;
+
+   const editModal = document.getElementById('edit-modal');
+
+   // Populate form fields
+   document.getElementById('edit-title').value = playlistObject.title;
+   document.getElementById('edit-creator').value = playlistObject.creatorName;
+   document.getElementById('edit-image').value = playlistObject.image;
+   document.getElementById('edit-date').value = playlistObject.dateAdded;
+
+   // Populate songs list
+   const songsList = document.getElementById('edit-songs-list');
+   songsList.innerHTML = '';
+
+   playlistObject.songs.forEach((song, index) => {
+      const songDiv = document.createElement('div');
+      songDiv.className = 'edit-song-item';
+      songDiv.innerHTML = `
+         <h4>Song ${index + 1}</h4>
+         <label>Title: <input type="text" class="song-title" value="${song.title}" data-index="${index}"></label>
+         <label>Artist: <input type="text" class="song-artist" value="${song.artistName}" data-index="${index}"></label>
+         <label>Album: <input type="text" class="song-album" value="${song.albumName}" data-index="${index}"></label>
+         <label>Length: <input type="text" class="song-length" value="${song.length}" data-index="${index}"></label>
+         <label>Image URL: <input type="text" class="song-image" value="${song.image}" data-index="${index}"></label>
+      `;
+      songsList.appendChild(songDiv);
+   });
+
+   editModal.style.display = 'block';
+}
+
+// Close edit modal
+document.getElementById('edit-close').onclick = function() {
+   document.getElementById('edit-modal').style.display = 'none';
+}
+
+document.getElementById('edit-cancel').onclick = function() {
+   document.getElementById('edit-modal').style.display = 'none';
+}
+
+// Save edited playlist
+document.getElementById('edit-form').onsubmit = function(event) {
+   event.preventDefault();
+
+   // Update playlist object
+   currentEditPlaylist.title = document.getElementById('edit-title').value;
+   currentEditPlaylist.creatorName = document.getElementById('edit-creator').value;
+   currentEditPlaylist.image = document.getElementById('edit-image').value;
+   currentEditPlaylist.dateAdded = document.getElementById('edit-date').value;
+
+   // Update songs
+   const songTitles = document.querySelectorAll('.song-title');
+   const songArtists = document.querySelectorAll('.song-artist');
+   const songAlbums = document.querySelectorAll('.song-album');
+   const songLengths = document.querySelectorAll('.song-length');
+   const songImages = document.querySelectorAll('.song-image');
+
+   songTitles.forEach((input, index) => {
+      currentEditPlaylist.songs[index].title = input.value;
+      currentEditPlaylist.songs[index].artistName = songArtists[index].value;
+      currentEditPlaylist.songs[index].albumName = songAlbums[index].value;
+      currentEditPlaylist.songs[index].length = songLengths[index].value;
+      currentEditPlaylist.songs[index].image = songImages[index].value;
+   });
+
+   // Update the card display
+   currentEditCard.querySelector('.playlist-title').textContent = currentEditPlaylist.title;
+   currentEditCard.querySelector('.playlist-creator').textContent = currentEditPlaylist.creatorName;
+   currentEditCard.querySelector('.playlist-cover').src = currentEditPlaylist.image;
+   currentEditCard.querySelector('.playlist-date').textContent = currentEditPlaylist.dateAdded;
+
+   // Update the onclick handler with new song data
+   const formattedSongs = currentEditPlaylist.songs.map(song => ({
+      title: song.title,
+      artist: song.artistName,
+      album: song.albumName,
+      duration: song.length,
+      image: song.image
+   }));
+
+   currentEditCard.onclick = function() {
+      openPlaylistModal(
+         currentEditPlaylist.title,
+         currentEditPlaylist.image,
+         currentEditPlaylist.creatorName,
+         formattedSongs
+      );
+   };
+
+   // Update in playlistData array
+   const index = playlistData.findIndex(p => p === currentEditPlaylist);
+   if (index > -1) {
+      playlistData[index] = currentEditPlaylist;
+   }
+
+   // Close modal
+   document.getElementById('edit-modal').style.display = 'none';
+
+   alert('Playlist updated successfully!');
+}
+
 // Sort playlists by like count (highest to lowest)
 function sortByLikes() {
    const sortedPlaylists = [...playlistData].sort((a, b) => b.likeCount - a.likeCount);
@@ -269,11 +404,35 @@ function create_playlist_card(playlist_object) {
    likeBtn.appendChild(heartIcon);
    likeBtn.appendChild(likeCount);
 
+   // Create edit button
+   const editBtn = document.createElement('button');
+   editBtn.className = 'edit-btn';
+   editBtn.innerHTML = '✏️';
+   editBtn.title = 'Edit playlist';
+
+   editBtn.onclick = function(event) {
+      event.stopPropagation();
+      openEditModal(playlist_object, article);
+   };
+
+   // Create delete button
+   const deleteBtn = document.createElement('button');
+   deleteBtn.className = 'delete-btn';
+   deleteBtn.innerHTML = '🗑️';
+   deleteBtn.title = 'Delete playlist';
+
+   deleteBtn.onclick = function(event) {
+      event.stopPropagation();
+      deletePlaylist(playlist_object, article);
+   };
+
    article.appendChild(img);
    article.appendChild(h3);
    article.appendChild(creatorP);
    article.appendChild(dateP);
    article.appendChild(likeBtn);
+   article.appendChild(editBtn);
+   article.appendChild(deleteBtn);
 
    const playlistCardsSection = document.querySelector('.playlist-cards');
    if (playlistCardsSection) {
@@ -281,6 +440,125 @@ function create_playlist_card(playlist_object) {
    }
 
    return article;
+}
+
+// Create Playlist Modal Functions
+let createSongCount = 0;
+
+function openCreateModal() {
+   const createModal = document.getElementById('create-modal');
+   const songsList = document.getElementById('create-songs-list');
+
+   // Reset form
+   document.getElementById('create-form').reset();
+   songsList.innerHTML = '';
+   createSongCount = 0;
+
+   // Add one default song field
+   addSongField();
+
+   createModal.style.display = 'block';
+}
+
+function addSongField() {
+   const songsList = document.getElementById('create-songs-list');
+   const songDiv = document.createElement('div');
+   songDiv.className = 'edit-song-item';
+   songDiv.setAttribute('data-song-index', createSongCount);
+
+   songDiv.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+         <h4>Song ${createSongCount + 1}</h4>
+         <button type="button" class="remove-song-btn" onclick="removeSongField(${createSongCount})">✕ Remove</button>
+      </div>
+      <label>Title: <input type="text" class="song-title" required></label>
+      <label>Artist: <input type="text" class="song-artist" required></label>
+      <label>Album: <input type="text" class="song-album" required></label>
+      <label>Length: <input type="text" class="song-length" placeholder="3:45" required></label>
+      <label>Image URL: <input type="text" class="song-image" required></label>
+   `;
+
+   songsList.appendChild(songDiv);
+   createSongCount++;
+}
+
+function removeSongField(index) {
+   const songDiv = document.querySelector(`[data-song-index="${index}"]`);
+   if (songDiv) {
+      songDiv.remove();
+   }
+}
+
+// Close create modal
+document.getElementById('create-close').onclick = function() {
+   document.getElementById('create-modal').style.display = 'none';
+}
+
+document.getElementById('create-cancel').onclick = function() {
+   document.getElementById('create-modal').style.display = 'none';
+}
+
+// Add song button
+document.getElementById('add-song-btn').onclick = function() {
+   addSongField();
+}
+
+// Create playlist form submit
+document.getElementById('create-form').onsubmit = function(event) {
+   event.preventDefault();
+
+   // Get form values
+   const title = document.getElementById('create-title').value;
+   const creator = document.getElementById('create-creator').value;
+   const image = document.getElementById('create-image').value;
+   const date = document.getElementById('create-date').value;
+
+   // Get songs
+   const songs = [];
+   const songItems = document.querySelectorAll('#create-songs-list .edit-song-item');
+
+   songItems.forEach(item => {
+      const song = {
+         title: item.querySelector('.song-title').value,
+         artistName: item.querySelector('.song-artist').value,
+         albumName: item.querySelector('.song-album').value,
+         length: item.querySelector('.song-length').value,
+         image: item.querySelector('.song-image').value
+      };
+      songs.push(song);
+   });
+
+   // Confirmation
+   const confirmation = confirm(`Are you sure you want to create the playlist "${title}" with ${songs.length} song(s)?`);
+
+   if (confirmation) {
+      // Create new playlist object
+      const newPlaylist = {
+         title: title,
+         creatorName: creator,
+         image: image,
+         dateAdded: date,
+         likeCount: 0,
+         songs: songs
+      };
+
+      // Add to playlistData
+      playlistData.push(newPlaylist);
+
+      // Remove "no playlists" message if it exists
+      const noPlaylistsMsg = document.querySelector('.no-playlists-message');
+      if (noPlaylistsMsg) {
+         noPlaylistsMsg.remove();
+      }
+
+      // Create and display the card
+      create_playlist_card(newPlaylist);
+
+      // Close modal
+      document.getElementById('create-modal').style.display = 'none';
+
+      alert('Playlist created successfully!');
+   }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

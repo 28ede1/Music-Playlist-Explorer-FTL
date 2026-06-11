@@ -221,3 +221,14 @@ As an additional AI feature spec, I wanted to have Spotify API integration that 
 Stretch:
 
 I want to implement the Favorites and Recents tabs. For something to be favorited, it must first be liked. I already keep track of liked/not liked status, but I need a way for the liked playlists to persist when switching between tabs, which is not the current behavior. When a user clicks the like button, it should count as a favorite and appear in the Favorites tab. If the user switches to different tabs, the favorited playlist should still remain in Favorites. Users should be able to unfavorite a playlist in two ways: In the Favorites tab, by clicking the heart icon to unfavorite it. In the All tab, by unliking/unfavoriting it there as well. In either case, the playlist should be removed from the Favorites tab. The recents tab just refers to whether the palylist modal has been clicked (whether the modal has opened). If so, the playlist should appear in the recents tab. The designs of the screens (in comparison to the featured tab), should be modeled after the ALl tab.
+
+#1
+Delete Playlist Button
+The bottom left corner of a playlist card should have a small button that allows the user to delete a playlist. It should be a garbage icon and should be read with maybe white font color. If the user clicks the garbage icon, they should get prompt saying "Are you sure?" with a cancel, delete options. If the user clicks the button to delete a playlist from the homepage, the playlist should be removed not just from the display but from the data itself too. 
+
+#2
+Edit Playlist Button
+To the left of the delete playlist button, but still found in the bottom left corner of the playlist card, there should be an edit button. If the user clicks the edit button, a modal should pop up allowing the user to directly update things like playlist name, author, or any of the song details. The modal should be styled nicely and have an intutive design. 
+
+#3
+The "Create Playlist" button in the header should have actual functionality. When the user clicks the button, a modal should pop up (similar style to the edit modal) where if clicked, a user should be able to create there own playlist and songs to have for the playlist. The user should have an are you sure prompt pop up to verify changes before they add the playlist to the screen. 
